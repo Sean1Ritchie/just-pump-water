@@ -115,6 +115,11 @@
   margin-bottom: var(--space-20);
 }
 
+/* Hidden when filtered out by the category tabs */
+.catalogue-section--hidden {
+  display: none !important;
+}
+
 .catalogue-section-header {
   display: flex;
   align-items: baseline;
