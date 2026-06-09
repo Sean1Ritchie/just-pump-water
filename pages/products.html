@@ -87,9 +87,9 @@
 <section class="section products-catalogue">
   <div class="container">
 
-    <div class="catalogue-tabs" data-tabs>
+    <div class="catalogue-tabs" data-catalogue-filter>
       <div class="tab-list" role="tablist">
-        <button class="tab-btn" data-tab="all" role="tab" aria-selected="true">All Products (27)</button>
+        <button class="tab-btn is-active" data-tab="all" role="tab" aria-selected="true">All Products (27)</button>
         <button class="tab-btn" data-tab="pumps" role="tab">Water Pumps</button>
         <button class="tab-btn" data-tab="filtration" role="tab">Filtration</button>
         <button class="tab-btn" data-tab="ro" role="tab">Reverse Osmosis</button>
@@ -97,7 +97,7 @@
     </div>
 
     <!-- PUMPS CATEGORY -->
-    <div class="catalogue-section" id="pumps" data-animate="fade-up">
+    <div class="catalogue-section" id="pumps" data-category="pumps" data-animate="fade-up">
       <div class="catalogue-section-header">
         <h2>Water Pumps</h2>
         <a href="pumps.html" class="btn-arrow">
@@ -190,7 +190,7 @@
     </div>
 
     <!-- FILTRATION CATEGORY -->
-    <div class="catalogue-section" id="filtration" data-animate="fade-up">
+    <div class="catalogue-section" id="filtration" data-category="filtration" data-animate="fade-up">
       <div class="catalogue-section-header">
         <h2>Water Filtration</h2>
         <a href="filtration.html" class="btn-arrow">
@@ -257,7 +257,7 @@
     </div>
 
     <!-- REVERSE OSMOSIS CATEGORY -->
-    <div class="catalogue-section" id="reverse-osmosis-section" data-animate="fade-up">
+    <div class="catalogue-section" id="reverse-osmosis-section" data-category="ro" data-animate="fade-up">
       <div class="catalogue-section-header">
         <h2>Reverse Osmosis</h2>
         <a href="reverse-osmosis.html" class="btn-arrow">
