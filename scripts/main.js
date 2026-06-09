@@ -160,6 +160,47 @@ function initTabs() {
   });
 }
 
+/* ─── Catalogue Category Filter (Products page) ──────────────── */
+
+function initCatalogueFilter() {
+  const filter = document.querySelector('[data-catalogue-filter]');
+  if (!filter) return;
+
+  const buttons  = filter.querySelectorAll('[data-tab]');
+  const sections = document.querySelectorAll('.catalogue-section[data-category]');
+  if (!buttons.length || !sections.length) return;
+
+  // Force a section (and its scroll-animated children) to its visible state,
+  // so a section filtered into view is never left stuck at opacity:0.
+  const reveal = section => {
+    [section, ...section.querySelectorAll('[data-animate]')].forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.clipPath = 'none';
+    });
+  };
+
+  const apply = (category, doReveal) => {
+    sections.forEach(section => {
+      const show = category === 'all' || section.dataset.category === category;
+      section.classList.toggle('catalogue-section--hidden', !show);
+      if (show && doReveal) reveal(section);
+    });
+    buttons.forEach(btn => {
+      const active = btn.dataset.tab === category;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  };
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => apply(btn.dataset.tab, true));
+  });
+
+  // Default: show everything, keeping the natural scroll-in animations.
+  apply('all', false);
+}
+
 /* ─── Accordion / FAQ ────────────────────────────────────────── */
 
 function initAccordion() {
@@ -200,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLazyLoad();
   initForms();
   initTabs();
+  initCatalogueFilter();
   initAccordion();
 
   // Mark page as JS-loaded
